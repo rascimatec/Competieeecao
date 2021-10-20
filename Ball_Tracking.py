@@ -1,9 +1,11 @@
+from tkinter import *
 import numpy as np                              # Primeira tentativa, compatibilizar camera com o pc.
 import cv2
 import time
-import keyboard
 import imutils
 from imutils.video import VideoStream
+from PIL import ImageTk, Image
+
 
 def calc_distancia(frame, xcentR, ycentR, xcentB, ycentB):
     cv2.line(frame, (xcentR, ycentR), (xcentB, ycentB), (0,0,255), 3, 8)
@@ -73,7 +75,33 @@ def MascBola(frame):
 
 cap = VideoStream(src=0).start()
 t00 = time.time()
-while not keyboard.is_pressed('q'):   # Função de captura da imagem
+
+
+
+
+def iniciar():
+    root.destroy()
+
+def cancelar():
+    exit()
+
+#interface de seleção e calibração
+root = Tk()
+h = IntVar()
+h.set('0')
+root.title("calibração") 
+Label(root, text="Numero de Robôs aliados").pack()
+Radiobutton(root, text="1", variable= h, value=1).pack()
+Radiobutton(root, text="2", variable= h, value=2).pack()
+Radiobutton(root, text="3", variable= h, value=3).pack()
+Button(root, text="Salvar", command=h.get()).pack()
+Button(root, text="Iniciar", command=iniciar).pack()
+Button(root, text="cancelar", command=cancelar).pack()
+
+root.mainloop()
+
+
+while h == 1 :   # Função de captura da imagem
     frame = cap.read() # Captura da imagem
     mascB, xcentB, ycentB = MascBola(frame)
     mascR, xcentR, ycentR = MascRobos(mascB)
