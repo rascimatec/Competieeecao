@@ -1,10 +1,9 @@
 from tkinter import *
-import numpy as np                              # Primeira tentativa, compatibilizar camera com o pc.
+import numpy as np                              
 import cv2
 import time
 import imutils
 from imutils.video import VideoStream
-from PIL import ImageTk, Image
 
 
 def calc_distancia(frame, xcentR, ycentR, xcentB, ycentB):
@@ -17,12 +16,12 @@ def calc_distancia(frame, xcentR, ycentR, xcentB, ycentB):
     return frame
 
 # Função para detectar robos aliados.
-def MascRobos(frame):
+def MascRobos(frame, num, cmin, cmax):
     frame = imutils.resize(frame, width=600, height=600) #resize, redefine o tamanho da imagem, usamos esse pq é mais rapido que o cv2.
     blur = cv2.GaussianBlur(frame, (11, 11), 0) #Transforma a imagem para borrada. (Só ímpares)
     hsv = cv2.cvtColor(blur, cv2.COLOR_BGR2HSV) #Aplica na imagem borrada um filtro HSV.
-    Cormaxima = np.array([117, 225, 158]) #Shade maximo da bola (laranja), array em HSV.
-    Corminima = np.array([106, 115, 68]) #Shade minimo da bola (laranja), array em HSV.
+    Cormaxima = cmin #Shade maximo da bola (laranja), array em HSV.
+    Corminima = cmax #Shade minimo da bola (laranja), array em HSV.
     mascara = cv2.inRange(hsv, Corminima, Cormaxima) #Procura cores no raio desejado.
     mascara = cv2.dilate(mascara, None,iterations=3) ##aplica efeitos de mascara.
     mascara = cv2.erode(mascara,None,iterations=3) #aplica efeitos de mascara.
@@ -36,6 +35,7 @@ def MascRobos(frame):
             xcentro, ycentro = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
             if raio > 10: #condicao para  nao detectar falsos positivos.
                 cv2.circle(frame, (xcentro, ycentro), 5, (0, 0, 255), -1) #desenha o circulo no centro
+                cv2.rectangle(frame, ((xcentro-1, ycentro+1)), ((xcentro+1, ycentro-1)), (0, 0, 255), 5, -1)#desenha o contorno na imagem 
                 cv2.putText(frame, "Robo aliado", (int(xc), int(yc)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255))
         else: 
             xcentro, ycentro = 0, 0
@@ -71,46 +71,76 @@ def MascBola(frame):
 
 
 
-
-
 cap = VideoStream(src=0).start()
 t00 = time.time()
 
-
-
-
+    
 def iniciar():
     root.destroy()
+    
 
 def cancelar():
     exit()
 
+def old_values():
+    hmax.set(17)
+    smax.set(255)
+    vmax.set(255)
+    hmin.set(0)
+    smin.set(156)
+    vmin.set(10)
+
+
 #interface de seleção e calibração
 root = Tk()
 h = IntVar()
-h.set('0')
-root.title("calibração") 
-Label(root, text="Numero de Robôs aliados").pack()
-Radiobutton(root, text="1", variable= h, value=1).pack()
-Radiobutton(root, text="2", variable= h, value=2).pack()
-Radiobutton(root, text="3", variable= h, value=3).pack()
-Button(root, text="Salvar", command=h.get()).pack()
-Button(root, text="Iniciar", command=iniciar).pack()
-Button(root, text="cancelar", command=cancelar).pack()
-
+hmin = IntVar()
+smin = IntVar()
+vmin = IntVar()
+hmax = IntVar()
+smax = IntVar()
+vmax = IntVar()
+root.iconphoto(False, PhotoImage(file='logo_ieee_icone.png'))
+root.title("calibração")
+root.geometry('650x400') 
+Label(root, text="Numero de Robôs aliados").place(x=20, y=0)
+Label(root, text="H MIN:").place(x=200, y=15)
+Label(root, text="S MIN:").place(x=200, y=55)
+Label(root, text="V MIN:").place(x=200, y=95)
+Label(root, text="Valores minimos da mascara").place(x=250, y=0)
+Scale(root, from_= 0, to= 255, variable= hmin, orient= HORIZONTAL).place(x=250, y=15)
+Scale(root, from_= 0, to= 255, variable= smin, orient= HORIZONTAL).place(x=250, y=55)
+Scale(root, from_= 0, to= 255, variable= vmin, orient= HORIZONTAL).place(x=250, y=95)
+Label(root, text="Valores maximos da mascara").place(x=470, y=0)
+Label(root, text="H MAX:").place(x=420, y=15)
+Label(root, text="S MAX:").place(x=420, y=55)
+Label(root, text="V MAX:").place(x=420, y=95)
+Scale(root, from_= 0, to= 255, variable= hmax, orient= HORIZONTAL).place(x=470, y=15)
+Scale(root, from_= 0, to= 255, variable= smax, orient= HORIZONTAL).place(x=470, y=55)
+Scale(root, from_= 0, to= 255, variable= vmax, orient= HORIZONTAL).place(x=470, y=95)
+Button(root, text="Restaurar",width= 15 , command= old_values).place(x=350, y=150)
+Button(root, text="1",width= 15 , command= lambda: h.set('1')).place(x=20, y=20)
+Button(root, text="2",width= 15, command= lambda: h.set('2')).place(x=20, y=45)
+Button(root, text="3",width= 15, command= lambda: h.set('3')).place(x=20, y=70)
+Button(root, text="Iniciar",width= 15, command= iniciar).place(x=325, y=275, anchor= S)
+Button(root, text="cancelar",width= 15, command= cancelar).place(x=325, y=300,anchor= S)
+ 
 root.mainloop()
+cmin = np.array([hmin.get(), smin.get(), vmin.get()])
+cmax = np.array([hmax.get(), smax.get(), vmax.get()])
 
 
-while h == 1 :   # Função de captura da imagem
+while h.get() == 1 or h.get() == 2 or h.get() == 3  :   # Função de captura da imagem
+    cont = h.get()
     frame = cap.read() # Captura da imagem
     mascB, xcentB, ycentB = MascBola(frame)
-    mascR, xcentR, ycentR = MascRobos(mascB)
+    mascR, xcentR, ycentR = MascRobos(mascB, cont, cmin, cmax)
     dist = calc_distancia(mascR, xcentR, ycentR, xcentB, ycentB)
     cv2.imshow('mascBola', dist) # Exibicao da imagem
     #cv2.imshow('MascRobos', mascR)
     k = cv2.waitKey(5) & 0xFF
     t01 = time.time() # Frame t para calculo do FPS
-    print("{} fps, size: {}".format(int(1./(t01 - t00)), frame.shape)) # Printa informacoes sobre a imagem no terminal.
+    #print("{} fps, size: {}".format(int(1./(t01 - t00)), frame.shape)) # Printa informacoes sobre a imagem no terminal.
     t00 = time.time() # Frame t0 para calculo do FPS
     if k == 27 :
         break
