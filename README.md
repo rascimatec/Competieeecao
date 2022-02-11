@@ -22,5 +22,7 @@
   - Github: https://github.com/FernandoSchett
   - Email: FernandoSchettini@outlook.com 
   - LinkedIn: https://www.linkedin.com/in/fernando-schettini-67b0a8209/
+
 **Gustavo Pacheco**
+
 **Heitor Rivera**
