@@ -30,27 +30,30 @@ The project was taken down, due to one of important members, Heitor got out of p
 
 ## Resourses 🧑‍🔬:
 
-- 
-- 
+- Image and illumination calibration framework development.
+- Webcam image capture algorithm, with image processing techniques for image enhancement and manipulation.
+- Identification of an  VSS (Vision-based Soccer System) category ball using image analysis.
 
 ## Dependencies 🚚:
 
 The project dependencies are described in a dependencies file within the repository. In summary, heres what you're gonna need in order to run the project:
 
-- 
-- 
+- Pillow, 9.5.0.
+- numpy, 1.23.5.
+- opencv-python, 4.7.0.72.
+- imutils, 0.5.4.
 
 For installing dependencies more quickly, you can run the following command at terminal, inside the clonned repository:
 
     pip3 install -r ./dependencies/requirements.txt
 
-Make sure you have all Dependencies before running the project.
+Make sure you have all Dependencies and a webcam before running the project.
 
 ## How to run it 🏃:
 
-First, clone this repository. After that, simply execute the ```file_name``` file with the command:
+First, clone this repository. After that, simply execute the ```ball_tracking.py``` file with the command:
 
-    sudo command_for_running_project
+    python3 src/ball_tracking.py
 
 ## Some Tests 🎬:
 
@@ -73,8 +76,8 @@ Team used a Kanbam based technique,
 - WebCam
 
 ## How to contribute 🫂:
-
-Feel free to create a new branch, fork the project, , create a new Issue or make a pull request contact one of us to develop at Competieecao Project.
+ 
+Feel free to create a new branch, fork the project, create a new Issue or make a pull request contact one of us to develop at Competieecao Project.
 
 ## Licence 📜:
 
