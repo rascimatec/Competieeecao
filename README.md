@@ -1,28 +1,68 @@
+### This READ.md template was written based on this [repository](https://github.com/FernandoSchett/github_readme_template).
 
-![competicao](https://user-images.githubusercontent.com/80331486/153673696-1b5959a2-d6bc-4a2b-b493-f20d200e69c0.png)
+<h1 align="center">🦾 Competieecao (DOWN) 🦾</h1>
 
+<div align="center">
+	<a href="link_for_webite">
+	<img height = "200em" src = "https://user-images.githubusercontent.com/80331486/153673696-1b5959a2-d6bc-4a2b-b493-f20d200e69c0.png" />
+    </a>
+</div>
 
-## A competieecao. 
+## Developed by 💻:
 
-  O projeto competIEEEção é uma iniciativa dentro do RAS e visa introduzir o IEEE – CIMATEC ao mundo das competições de robótica.
+- [Fernando](https://github.com/FernandoSchett)- Project Sub-Leader.
+- [Heitor Rivera]() - Project Leader.
+- [Gustavo Pacheco]().
 
-# Quem somos?
-  Como a equipe competitiva do RAS, nosso objetivo é levar o IEEE em campeonatos de robótica de todos os tamanhos! Atualmente, temos como objetivo participar de um campeonato de futebol da RobôCup, a CBR, na categoria very small soccer. Construiremos nossos próprios robôs jogadores, controlados por visão computacional e criaremos um time para jogar contra outros nos torneios!
+## About 🤔:
 
-# Nosso Objetivo:
-  Atualmente nossa equipe tem como meta desenvolver um time de robôs para a categoria Very Small Soccer, onde todos os “jogadores” tem a dimensão definida de no máximo 7,5 x 7,5 x 7,5cm, podendo ter formato de livre escolha desde que atenda aos limites de tamanho. O design dos robôs e da arena foram executados em modelagem 3D, baseados em técnicas de CAD.
+## Resourses 🧑‍🔬:
 
-  Para o controle dos movimentos durante a partida, é utilizada a visão computacional através de uma câmera localizada no topo da arena. Ela tem a função de captar as informações do campo e dos robôs e passá-las para o computador de comando, responsável por analisar os dados através de um algoritmo desenvolvido pelos integrantes da equipe de competição.
+- 
+- 
 
-  Após o processamento das informações, a decisão do próximo movimento do jogador é tomada em tempo real e enviada ao robô que obedece ao comando. No universo das competições de robótica, estratégias diferentes e criativas são de fundamental importância para a garantia de bons resultados. Dentro do IEEE, buscamos sempre desenvolver novas ideias em diversas frentes, por isso, acreditamos que o nosso time de competIEEEção será de imenso valor para o capítulo da RAS.
+## Dependencies 🚚:
 
+The project dependencies are described in a dependencies file within the repository. In summary, heres what you're gonna need in order to run the project:
 
-## Equipe
-**Fernando Schettini** 
-  - Github: https://github.com/FernandoSchett
-  - Email: FernandoSchettini@outlook.com 
-  - LinkedIn: https://www.linkedin.com/in/fernando-schettini-67b0a8209/
+- 
+- 
 
-**Gustavo Pacheco**
+For installing dependencies more quickly, you can run the following command at terminal, inside the clonned repository:
 
-**Heitor Rivera**
+    sudo command_for_installing_deppendecies
+
+## How to run it 🏃:
+
+First, clone this repository. After that, simply execute the ```file_name``` file with the command:
+
+    sudo command_for_running_project
+
+## Some Tests 🎬:
+
+We got some tests with the algorithm, and got a lot of fun, represented by figure 1.
+
+<div align="center">
+	<a href="">
+	<img height = "250em" src = "" />
+    </a>
+</div>
+<h4 align="center">Figure 1 - Tests from the algorithm.</h4>
+
+## Development Process ⚙️:
+
+Developers used [Trello]() to get things organized, each one using their own branch to code, using names to identify the commit type then merginng the features into develop branch. After testing, the group update the main branch. This application was developed in xx/xx/20xx until xx/xx/20xx.
+
+### Tools Used 🛠️: 
+
+- [VScode](https://code.visualstudio.com/). 
+- WebCam
+
+## How to contribute 🫂:
+
+Feel free to create a new branch, fork the project, , create a new Issue or make a pull request contact one of us to develop at Competieecao Project.
+
+## Licence 📜:
+
+[Apache V2](https://choosealicense.com/licenses/apache-2.0/)
+
