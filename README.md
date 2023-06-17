@@ -10,11 +10,23 @@
 
 ## Developed by 💻:
 
-- [Fernando](https://github.com/FernandoSchett)- Project Sub-Leader.
+- [Fernando Schettini](https://github.com/FernandoSchett)- Project Sub-Leader.
 - [Heitor Rivera]() - Project Leader.
 - [Gustavo Pacheco]().
 
 ## About 🤔:
+
+The CompetIEEEtion project was an initiative within RAS aimed at introducing IEEE - CIMATEC to the world of robotics competitions.
+
+As the competitive team of RAS, our goal was to represent IEEE in robotics competitions of all sizes! We aimed to participate in a RoboCup soccer championship, the CBR, in the very small soccer category. We tried to build our own player robots, controlled by computer vision, and create a team to compete against others in tournaments.
+
+Our team's goal wa to develop a team of robots for the Very Small Soccer category, where all "players" have a defined dimension of maximum 7.5 x 7.5 x 7.5 cm, with a free choice of shape as long as it meets the size limits. The robots' design and the arena were created using 3D modeling techniques based on CAD.
+
+For controlling the movements during the game, computer vision is used through a camera located at the top of the arena. Its function is to capture field and robot information and pass it to the command computer, responsible for analyzing the data using an algorithm developed by the competition team members.
+
+After processing the information, the decision for the player's next move is made in real-time and sent to the robot, which follows the command. In the realm of robotics competitions, different and creative strategies are of paramount importance to ensure good results.
+
+The project was taken down, due to one of important members, Heitor got out of projetc. 
 
 ## Resourses 🧑‍🔬:
 
@@ -30,7 +42,9 @@ The project dependencies are described in a dependencies file within the reposit
 
 For installing dependencies more quickly, you can run the following command at terminal, inside the clonned repository:
 
-    sudo command_for_installing_deppendecies
+    pip3 install -r ./dependencies/requirements.txt
+
+Make sure you have all Dependencies before running the project.
 
 ## How to run it 🏃:
 
@@ -51,7 +65,7 @@ We got some tests with the algorithm, and got a lot of fun, represented by figur
 
 ## Development Process ⚙️:
 
-Developers used [Trello]() to get things organized, each one using their own branch to code, using names to identify the commit type then merginng the features into develop branch. After testing, the group update the main branch. This application was developed in xx/xx/20xx until xx/xx/20xx.
+Team used a Kanbam based technique, 
 
 ### Tools Used 🛠️: 
 
