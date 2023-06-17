@@ -68,7 +68,7 @@ We got some tests with the algorithm, and got a lot of fun, represented by figur
 
 ## Development Process ⚙️:
 
-Team used a Kanbam based technique, 
+Developers worked for two weeks using the Kanban methodology to develop this project. Each week, they synchronized and delivered their tasks.
 
 ### Tools Used 🛠️: 
 
