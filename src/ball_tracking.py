@@ -1,9 +1,10 @@
-from tkinter import *
-from PIL import ImageTk, Image
 import numpy as np                              
 import cv2
 import time
 import imutils
+
+from tkinter import *
+from PIL import ImageTk, Image
 from imutils.video import VideoStream
 
 def cantos_arena(frame):
@@ -14,7 +15,6 @@ def cantos_arena(frame):
     mascara = cv2.inRange(hsv, Corminima, Cormaxima)
     #branco = cv2.bitwise_and(frame, frame, mask=mascara)
     return mascara
-
 
 # Função para calcular a distancia entre robôs aliados e a bola 
 def calc_distancia(frame, xcentR, ycentR, xcentB, ycentB):
@@ -79,13 +79,10 @@ def MascBola(frame):
             xcentro, ycentro = 0 , 0
     return frame, xcentro, ycentro
 
-
 cap = VideoStream(src=0).start()
 t00 = time.time()
 
-
 def tela_calibracao():
-    
     hsv = show_frame()
     imagem = Image.fromarray(hsv)
     imgtk = ImageTk.PhotoImage(image=imagem)
@@ -93,9 +90,6 @@ def tela_calibracao():
     #picker.after(calibrar)
     Label(picker, image=imgtk).pack()
     
-    
-    
-
 def show_frame():
     global imgtk
     global frame
@@ -112,11 +106,8 @@ def show_frame():
     foto.pack()
     Label(picker, text="imagem aqui").pack()
     
-   
-    
 def iniciar():
     root.destroy()
-    
 
 def cancelar():
     exit()
@@ -128,7 +119,6 @@ def old_values():
     hmin.set(0)
     smin.set(156)
     vmin.set(10)
-
 
 #interface de seleção e calibração
 root = Tk()
@@ -166,7 +156,6 @@ Button(root, text="cancelar",width= 15, command= cancelar).place(x=325, y=325,an
 
 
 #interface do color picker
-
 picker = Toplevel()
 picker.geometry("650x600")
 picker.title("Color Picker")
@@ -177,18 +166,12 @@ Scale(picker, from_= 0, to= 255,command= show_frame, variable= vmin, orient= HOR
 Scale(picker, from_= 0, to= 255, variable= hmax, orient= HORIZONTAL).place(x=470, y=15)
 Scale(picker, from_= 0, to= 255, variable= smax, orient= HORIZONTAL).place(x=470, y=55)
 Scale(picker, from_= 0, to= 255, variable= vmax, orient= HORIZONTAL).place(x=470, y=95)
+
 show_frame()
-
 mainloop()
-
-
-
 
 cmin = np.array([hmin.get(), smin.get(), vmin.get()])
 cmax = np.array([hmax.get(), smax.get(), vmax.get()])
-
-
-
 
 while h.get() == 1 or h.get() == 2 or h.get() == 3  :   # Função de captura da imagem
     cont = h.get()
