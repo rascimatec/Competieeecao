@@ -38,10 +38,10 @@ The project was taken down, due to one of important members, Heitor got out of p
 
 The project dependencies are described in a dependencies file within the repository. In summary, heres what you're gonna need in order to run the project:
 
-- Pillow, 9.5.0.
-- numpy, 1.23.5.
-- opencv-python, 4.7.0.72.
-- imutils, 0.5.4.
+- ```Pillow 9.5.0```.
+- ```numpy 1.23.5```.
+- ```opencv-python 4.7.0.72```.
+- ```imutils 0.5.4```.
 
 For installing dependencies more quickly, you can run the following command at terminal, inside the clonned repository:
 
